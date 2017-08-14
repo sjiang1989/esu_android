@@ -109,7 +109,7 @@
     <string name="dialog_signed_in">You have signed in.</string>
     <string name="dialog_signed_out">You have signed out.</string>
     <string name="dialog_idle_sign_out">You have been idle too long and have signed out.</string>
-    <string name="dialog_login_instructions">Please contact your institution’s IT staff for assistance with login.</string>
+    <string name="dialog_login_instructions">This feature is currently available to students only.  Please contact the ESU Help Desk at (570) 422-3789 for assistance with login.</string>
 
     <!-- Fingerprint Authentication -->
     <string name="fingerprint_cancel">Cancel</string>
