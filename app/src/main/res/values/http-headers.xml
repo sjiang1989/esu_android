@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<resources>
+
+    <string name="ellucian_mobile_version_label" translatable="false">Ellucian-Mobile-Version</string>
+    <string name="ellucian_mobile_version" translatable="false">5.1.1</string>
+
+</resources>

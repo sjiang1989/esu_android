@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="16dp">
+	
+    <TextView 
+        android:id="@+id/course_name"
+     	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	
+    	android:textAppearance="@android:style/TextAppearance.Medium"
+    	android:textStyle="bold" />
+        
+    <TextView 
+        android:id="@+id/course_title"
+     	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	
+    	android:textAppearance="@android:style/TextAppearance.Medium" />
+    
+
+</LinearLayout>

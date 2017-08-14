@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015-2017 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" xmlns:tools="http://schemas.android.com/tools">
+    
+    <TextView 
+        android:id="@+id/title"
+        tools:text="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/list_title_text_size"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/input"
+            tools:hint="Hint Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:imeOptions="flagNoFullscreen"
+            android:paddingTop="2dp"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:padding="4dp"
+    	tools:ignore="ButtonStyle" >
+        
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+    
+    	<Button 
+	        android:id="@+id/ok_button"
+	         android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@android:string/ok" />
+        
+    </LinearLayout>
+        
+    
+
+</LinearLayout>

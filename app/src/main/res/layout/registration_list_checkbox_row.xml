@@ -1,0 +1,129 @@
+<!--
+  ~ Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/registration_row_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    style="@style/listRow" >
+    
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingTop="10dp"
+		android:paddingEnd="6dp"
+        android:paddingBottom="10dp"
+        android:focusable="false"
+		android:focusableInTouchMode="false"
+		tools:ignore="RtlSymmetry" />
+	
+    <LinearLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:paddingStart="6sp"
+		tools:ignore="RtlSymmetry">
+        
+        <RelativeLayout 
+            android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+            
+            <TextView
+		        android:id="@+id/course_name"
+                tools:text="MATH 101-12"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentStart="true"
+		        android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/academic_level_and_location"
+		        android:maxLines="1"
+		        android:ellipsize="end"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <TextView
+                android:id="@+id/academic_level_and_location"
+                tools:text="UG | M"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+		        android:layout_alignParentTop="true"
+		        android:maxLines="1"
+                android:layout_toStartOf="@+id/seats_available_box"
+	            android:ellipsize="end"
+        		android:paddingStart="3dp"
+                android:paddingTop="3sp"
+                tools:ignore="UnknownIdInLayout" />
+
+            <include layout="@layout/seats_meter_item"/>
+
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/section_title"
+            tools:text="College Algebra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"  >
+	        
+	        <TextView
+	            android:id="@+id/instructor"
+                tools:text="Bardel, Gregory"
+	            android:layout_width="0dip"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:ellipsize="end"
+        		android:maxLines="1" />
+	        	        
+	        <TextView
+		        android:id="@+id/instructor_credits_separator"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0"
+		        android:maxLines="1"
+		        android:text="@string/line_separator"
+		        android:textStyle="bold"		   
+		        android:paddingLeft="4dp"
+	            android:paddingStart="4dp" 
+		        android:paddingRight="4dp"
+	            android:paddingEnd="4dp" />
+	          
+	        <TextView
+		        android:id="@+id/credits"
+                tools:text="4.00 Credits"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0"
+		        android:ellipsize="none"
+		        android:maxLines="1" />
+				
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"  >
+	        
+	        <TextView
+	            android:id="@+id/meetings_and_type"
+                tools:text="Mon, Wed, Fri: 10:00 AM - 10:50 AM | TR"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:ellipsize="end"
+        		android:maxLines="1"  />
+			
+	    </LinearLayout>
+
+	</LinearLayout>
+	
+</LinearLayout>

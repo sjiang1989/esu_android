@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/audio_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <TextView
+            android:id="@+id/audio_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CC000000"
+            android:lineSpacingExtra="@dimen/multimedia_text_line_spacing_size"
+            android:paddingBottom="@dimen/multimedia_text_padding_bottom"
+            android:paddingStart="@dimen/multimedia_text_padding_left"
+            android:paddingEnd="@dimen/multimedia_text_padding_right"
+            android:paddingTop="@dimen/multimedia_text_padding_top"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/list_title_text_size" />
+    </ScrollView>
+
+</RelativeLayout>

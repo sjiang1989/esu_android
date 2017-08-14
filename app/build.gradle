@@ -1,0 +1,106 @@
+/*
+ * Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 24
+        versionName "5.1.1" // must be "#.#.#"
+        versionCode 511
+    }
+
+    buildTypes {
+        debug {
+            pseudoLocalesEnabled true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        qa {
+            applicationIdSuffix ".qa"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'SameParameterValue', 'Convert2Diamond', 'LongLogTag', 'JavaDoc', 'SpellCheckingInspection'
+    }
+
+    productFlavors {
+        ellucianGo {
+            applicationId "com.ellucian.elluciango"
+            versionName = getVersion(versionName)
+            versionCode = getVersionCode(versionCode)
+        }
+        customer {
+            applicationId "edu.school.app"
+            applicationId = getApplicationId(applicationId)
+            versionName = getVersion(versionName)
+            versionCode = getVersionCode(versionCode)
+            buildConfigField "String", "contentProvider", '"' + applicationId + '.contentprovider"'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+    compile 'com.google.android.gms:play-services-gcm:10.0.1'
+    compile 'com.google.android.gms:play-services-location:10.0.1'
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.googlecode.android-query:android-query:0.25.9'
+    compile 'org.apache.commons:commons-io:1.3.2'
+    compile 'org.jsoup:jsoup:1.8.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.android.support:support-v13:25.0.1'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'org.altbeacon:android-beacon-library:2.9.1'
+}
+
+def getVersionCode(versionCode) {
+    if (hasProperty('version_code')) {
+        return Integer.parseInt(version_code)
+    }
+    return versionCode
+}
+
+def getVersion(version) {
+    if (hasProperty('version_build')) {
+        return version_build
+    }
+    return version
+}
+
+def getApplicationId(applicationId) {
+    if (hasProperty('application_id')) {
+        return application_id
+    }
+    return applicationId
+}
+
+android.applicationVariants.all { variant ->
+    if ("ellucianGoRelease".equals(variant.name) || "ellucianGoDebug".equals(variant.name)) {
+        buildConfigField "String", "contentProvider", '"com.ellucian.mobile.android.contentprovider"'
+    } else if ("ellucianGoQa".equals(variant.name)) {
+        buildConfigField "String", "contentProvider", '"com.ellucian.elluciango.qa.contentprovider"'
+    }
+}
+
+
+

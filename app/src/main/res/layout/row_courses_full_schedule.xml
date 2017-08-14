@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/row_courses_full_schedule_row_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/row_courses_full_schedule_name"
+            style="@style/newsEventsListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="6sp"
+            android:textIsSelectable="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            style="@style/newsEventsListTitle"
+            android:layout_height="wrap_content"
+            android:text="@string/dash_separator"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/row_courses_full_schedule_section_number"
+            style="@style/newsEventsListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="false"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/row_courses_full_schedule_title"
+        style="@style/listDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="6sp"
+        android:textIsSelectable="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/list_title_text_color"
+        tools:ignore="RtlSymmetry" />
+
+</LinearLayout>

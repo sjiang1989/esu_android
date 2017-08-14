@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/listRow" >
+        
+	<TextView
+	    android:id="@+id/course_roster_row_name"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="@color/list_title_text_color"
+        android:clickable="true"
+	    android:onClick="findRosterStudent" />
+
+</LinearLayout>

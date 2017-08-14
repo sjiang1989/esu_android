@@ -1,0 +1,18 @@
+<!--
+  ~ Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<TextView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    tools:text="Section Header"
+	android:id="@+id/list_header_title"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:textDirection="firstStrong"
+	android:paddingTop="2dp"
+	android:paddingBottom="2dp"
+	android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+	style="?android:attr/listSeparatorTextViewStyle"
+	android:textIsSelectable="false" />

@@ -1,0 +1,17 @@
+<!--
+  ~ Copyright 2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_header_title"
+    tools:text="@string/registration_approval_required"
+    style="@style/approvalRequiredHeaderLeftText"
+    android:background="@color/status_important_text_color"
+    android:drawableStart="@drawable/ic_warning_white_24dp"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    android:drawablePadding="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical" />

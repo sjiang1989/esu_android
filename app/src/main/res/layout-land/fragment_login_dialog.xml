@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2016-2017 Ellucian Company L.P. and its affiliates.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_dialog_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sub_header_bg"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" >
+
+    <include layout="@layout/progress_indicator" />
+
+    <!-- Footer aligned to bottom -->
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/default_gray"
+            tools:ignore="ButtonStyle" >
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:text="@android:string/cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/sign_in_button"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:text="@string/dialog_sign_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusableInTouchMode="true">
+
+            <!-- TITLE -->
+
+            <TextView
+                android:id="@+id/login_dialog_title"
+                style="@style/dialogTitle"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="@string/dialog_sign_in_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <!-- LOGIN CONTENT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusableInTouchMode="true">
+
+                <!-- LOGIN CONTENT LEFT SIDE -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusableInTouchMode="true">
+
+                    <!-- USER NAME -->
+
+                    <LinearLayout
+                        style="@style/dialogRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/login_dialog_username_wrapper"
+                            tools:hint="@string/dialog_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/login_dialog_username"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:imeOptions="flagNoFullscreen"
+                                android:drawableStart="@drawable/ic_username_field"
+                                android:inputType="textEmailAddress"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <!-- PASSWORD -->
+
+                    <LinearLayout
+                        style="@style/dialogRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/login_dialog_password_wrapper"
+                            android:hint="@string/dialog_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/login_dialog_password"
+                                style="@style/dialogPasswordHintStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_weight="2"
+                                android:drawableStart="@drawable/ic_password_field"
+                                android:inputType="textPassword"
+                                android:textAlignment="viewStart"
+                                android:textDirection="locale"
+                                android:imeOptions="actionGo|flagNoFullscreen" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <!-- FINGERPRINT AUTH -->
+                    <CheckBox
+                        style="@style/dialogRow.Light"
+                        android:id="@+id/fingerprint_login_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/dialog_use_fingerprint" />
+
+                    <!-- STAY SIGNED IN -->
+
+                    <CheckBox
+                        style="@style/dialogRow.Light"
+                        android:id="@+id/stay_signed_in_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/dialog_stay_signed_in"/>
+
+                    <TextView
+                        style="@style/dialogRow.Light"
+                        android:id="@+id/stay_signed_in_disabled_text"
+                        android:text="@string/dialog_stay_signed_in_disabled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        tools:visibility="visible"
+                        android:visibility="gone"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <!-- LOGIN CONTENT RIGHT SIDE -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusableInTouchMode="true"
+                    android:paddingTop="10dp">
+
+                    <!-- LOGIN INSTRUCTIONS -->
+
+                    <TextView
+                        style="@style/dialogRow.Light"
+                        android:id="@+id/login_instructions"
+                        tools:text="@string/dialog_login_instructions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textAlignment="center" />
+
+                    <!-- LOGIN HELP URL -->
+
+                    <TextView
+                        style="@style/dialogRow.Light"
+                        android:id="@+id/login_help"
+                        tools:text="Trouble Logging In?"
+                        tools:visibility="visible"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/maps_action_search"
+        app:actionViewClass="android.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        android:title="@string/menu_search" />
+    <item
+        android:id="@+id/maps_campus"
+        app:showAsAction="always"
+        android:title="@string/label_campus" />
+    <item
+        android:id="@+id/maps_layers"
+        app:showAsAction="never"
+        android:title="@string/layers" />
+    <item
+        android:id="@+id/maps_buildings"
+        app:showAsAction="never"
+        android:title="@string/maps_building_list_label" />
+    <item
+        android:id="@+id/maps_legal"
+        app:showAsAction="never"
+        android:title="@string/legal" />
+
+</menu>

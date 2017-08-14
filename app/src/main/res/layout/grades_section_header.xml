@@ -1,0 +1,31 @@
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/sectionHeaderStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!--android:layout_marginStart="6sp"-->
+    <!--android:layout_marginLeft="6sp"-->
+
+    <TextView
+        android:id="@+id/course_label"
+        style="@style/newsEventsListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="false"/>
+
+    <TextView
+        android:id="@+id/course_title"
+        style="@style/newsEventsListTitle"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textIsSelectable="false"/>
+
+</LinearLayout>

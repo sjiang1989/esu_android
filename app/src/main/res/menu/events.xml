@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/events_action_search"
+        app:actionViewClass="android.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        android:title="@string/menu_search" />
+    <item
+        android:id="@+id/events_menu_filter"
+        android:icon="@drawable/ic_menu_filter"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/menu_filter" />
+
+</menu>

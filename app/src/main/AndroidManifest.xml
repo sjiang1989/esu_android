@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.ellucian.elluciango">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+	<!-- GCM (Notification) permissions -->
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+	<uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
+    <uses-feature android:required="false" android:name="android.hardware.location"/>
+    <uses-feature android:required="false" android:name="android.hardware.location.gps"/>
+    <uses-feature android:required="false" android:name="android.hardware.location.network"/>
+    <uses-feature android:required="true" android:name="android.hardware.touchscreen"/>
+
+    <application
+        android:name="com.ellucian.mobile.android.EllucianApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Ellucian"
+        android:allowBackup="false"
+        android:resizeableActivity="true"
+        android:supportsRtl="true" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
+        <!-- ACTIVITIES -->
+
+        <!-- Main, Configuration and Settings -->
+        <activity
+            android:name="com.ellucian.mobile.android.MainActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.schoolselector.ConfigurationLoadingActivity"
+            android:label="@string/title_activity_configuration_loading"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:noHistory="true" >
+            <intent-filter android:label="@string/app_name">
+                <data android:scheme="https" android:host="@string/app_intent_filter_host" android:pathPrefix="/mobilecloud/configuration" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <data android:scheme="@string/app_intent_filter_scheme"/>
+                <data android:host="configuration"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.app.SendToSelectionReceiverActivity"
+            android:noHistory="true" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.app.ConfigurationUpdateReceiverActivity"
+            android:noHistory="true" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.app.OutdatedReceiverActivity"
+            android:noHistory="true" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.schoolselector.SchoolSelectionActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_school_selection"
+            android:windowSoftInputMode="adjustPan"
+            android:noHistory="true" >
+            <intent-filter android:label="@string/app_name">
+				<action android:name="android.intent.action.VIEW" />
+          		<category android:name="android.intent.category.DEFAULT" />
+          		<category android:name="android.intent.category.BROWSABLE" />
+          		<data android:scheme="https" android:host="@string/app_intent_filter_host" android:pathPrefix="/mobilecloud/cloud" />
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <data android:scheme="@string/app_intent_filter_scheme"/>
+                <data android:host="mobilecloud"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.settings.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Default -->
+        <activity
+            android:name="com.ellucian.mobile.android.app.EllucianDefaultDetailActivity"
+            android:label="@string/title_activity_default_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+        <!-- About -->
+		<activity
+            android:name="com.ellucian.mobile.android.about.AboutActivity"
+            android:label="@string/title_activity_about" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+		<!-- Courses -->
+        <activity
+            android:name="com.ellucian.mobile.android.courses.overview.CourseOverviewActivity"
+            android:label="@string/title_activity_course_overview" >
+         	<meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.courses.assignments.CourseAssignmentsDetailActivity"
+            android:label="@string/title_activity_course_assignments_detail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.courses.announcements.CourseAnnouncementsDetailActivity"
+            android:label="@string/title_activity_course_announcements_detail" >
+         	<meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.courses.events.CourseEventsDetailActivity"
+            android:label="@string/title_activity_course_events_detail" >
+         	<meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+        <activity
+            android:name="com.ellucian.mobile.android.courses.daily.CoursesDailyScheduleActivity"
+            android:label="@string/title_activity_courses_daily_schedule" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.courses.full.CoursesFullScheduleActivity"
+            android:label="@string/title_activity_courses_full_schedule" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Directory -->
+        <activity
+            android:name="com.ellucian.mobile.android.directory.DirectoryActivity"
+            android:label="@string/title_activity_directory" >
+        <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.directory.DirectoryListActivity"
+            android:label="@string/title_activity_directory_list_all">
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.directory.DirectoryDetailActivity"
+            android:label="@string/title_activity_directory_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+		<!-- Events -->
+		<activity
+            android:name="com.ellucian.mobile.android.events.EventsActivity"
+            android:label="@string/title_activity_events"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop" android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                   android:resource="@xml/searchable_events"/>
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.events.EventsDetailActivity"
+            android:label="@string/title_activity_events_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Finances -->
+        <activity
+            android:name="com.ellucian.mobile.android.finances.FinancesActivity"
+            android:label="@string/title_activity_finances" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+        <!-- Grades -->
+        <activity
+            android:name="com.ellucian.mobile.android.grades.GradesActivity"
+            android:label="@string/title_activity_grades" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Ilp -->
+        <activity
+            android:name="com.ellucian.mobile.android.ilp.IlpListActivity"
+            android:label="@string/title_activity_ilp" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.ilp.IlpDetailActivity"
+            android:label="@string/title_activity_ilp_detail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.ilp.IlpCardActivity"
+            android:label="@string/title_activity_ilp_today">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+        
+        <!-- Location Awareness -->
+        <activity
+            android:name="com.ellucian.mobile.android.notifications.LaunchModuleActivity"
+            android:label="@string/title_activity_launchModule" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Maps -->
+        <activity
+            android:name="com.ellucian.mobile.android.maps.MapsActivity"
+            android:label="@string/title_activity_maps" >
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="com.ellucian.mobile.android.maps.BuildingListActivity" />
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+        <activity
+            android:name="com.ellucian.mobile.android.maps.LegalNoticesActivity"
+            android:label="@string/title_activity_maps" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.maps.BuildingDetailActivity" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.maps.BuildingInfoDetailActivity" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.maps.MapsSingleLocationActivity"
+             >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:label="@string/maps_building_list_label"
+            android:name="com.ellucian.mobile.android.maps.BuildingListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable_buildings" />
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Multimedia -->
+        <activity
+            android:name="com.ellucian.mobile.android.multimedia.VideoActivity"
+            android:label="@string/title_activity_video"
+            android:configChanges="orientation|screenSize" >
+        <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.multimedia.AudioActivity"
+            android:label="@string/title_activity_audio"
+            android:configChanges="orientation|screenSize" >
+        <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- News -->
+        <activity
+            android:name="com.ellucian.mobile.android.news.NewsActivity"
+            android:label="@string/title_activity_news"
+            android:configChanges="keyboard|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTop" android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                   android:resource="@xml/searchable_news"/>
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.news.NewsDetailActivity"
+            android:label="@string/title_activity_news_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+		<!-- Notifications -->
+        <activity
+            android:name="com.ellucian.mobile.android.notifications.NotificationsActivity"
+            android:label="@string/title_activity_notifications" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.notifications.NotificationsDetailActivity" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+    	<!-- Numbers -->
+        <activity
+            android:name="com.ellucian.mobile.android.numbers.NumbersListActivity"
+            android:label="@string/title_number_list"
+            android:configChanges="keyboard|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTop" android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+        <activity
+            android:name="com.ellucian.mobile.android.numbers.NumbersDetailActivity"
+            android:label="@string/title_number_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Registration -->
+        <activity
+            android:name="com.ellucian.mobile.android.registration.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.ellucian.mobile.android.registration.RegistrationDetailActivity"
+            android:label="@string/title_activity_registration_detail" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+        <!-- Webframe -->
+        <activity
+            android:name="com.ellucian.mobile.android.webframe.WebframeActivity"
+            android:label="Webframe"
+            android:configChanges="orientation|screenSize" >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="com.ellucian.mobile.android.MainActivity"/>
+        </activity>
+
+
+	<!-- SERVICES -->
+        <service android:name="com.ellucian.mobile.android.client.services.AuthenticateUserIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.ConfigurationUpdateService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseDetailsIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseGradesIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseRosterIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseAssignmentsIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseAnnouncementsIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CourseEventsIntentService" />
+		<service android:name="com.ellucian.mobile.android.client.services.CoursesFullScheduleIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.EventsIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.FinancesBalanceIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.FinancesTransactionsIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.GradesIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.ImageLoaderService" />
+        <service android:name="com.ellucian.mobile.android.client.services.MapsIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.NewsIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.NotificationsIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.NotificationsUpdateDatabaseService" />
+        <service android:name="com.ellucian.mobile.android.client.services.NotificationsUpdateServerService" />
+        <service android:name="com.ellucian.mobile.android.client.services.NumbersIntentService" />
+        <service android:name="com.ellucian.mobile.android.client.services.RegisterService" />
+        <service android:name="com.ellucian.mobile.android.client.services.RegistrationCartUpdateService" />
+        <service android:name="com.ellucian.mobile.android.client.services.UpdateAssignmentIntentService" />
+
+        <!-- GCM Listener -->
+        <service
+            android:name="com.ellucian.mobile.android.notifications.EllucianGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+    	<!-- App widget -->
+    	<receiver
+            android:name="com.ellucian.mobile.android.ilp.widget.AssignmentsWidgetProvider"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.ellucian.mobile.AssignmentWidgetProvider.action.update.widget.header" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/assignments_widget_provider" />
+        </receiver>
+        <receiver android:name="com.ellucian.mobile.android.ilp.widget.AlarmManagerBroadcastReceiver" />
+
+        <service
+            android:name="com.ellucian.mobile.android.ilp.widget.AssignmentsWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Register AnalyticsReceiver and AnalyticsService to support background
+         dispatching on non-Google Play devices. -->
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+                  android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService"
+                 android:enabled="true"
+                 android:exported="false"/>
+
+        <!-- Beacon notification response listener -->
+        <receiver android:name="com.ellucian.mobile.android.client.locations.BeaconMuteBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.ellucian.mobile.android.client.locations.BeaconNotificationManager.MUTE_BEACON">
+                </action>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.Ellucian" parent="BaseTheme"/>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:selectableItemBackground">@android:color/transparent</item>
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+	<style name="DropDownItem" parent="Theme.AppCompat.Light.NoActionBar">
+    	<item name="android:textAppearance">?android:attr/textAppearanceInverse</item>
+	</style>
+ 
+	<style name="SpinnerItem" parent="Theme.AppCompat.Light.NoActionBar">
+	    <item name="android:textAppearance">?android:attr/textAppearanceInverse</item>
+	</style>
+    
+    <!-- LISTS -->
+    <style name="listContainer">
+        <!-- <item name="android:scrollbarStyle">outsideInset</item> -->
+    </style>
+
+    <style name="listRow">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">@dimen/list_row_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/list_row_padding_top</item>
+        <item name="android:background">@drawable/dual_pane_list_selector</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="listTitle">
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="listDescription">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textSize">@dimen/list_description_text_size</item>
+        <item name="android:textColor">@color/list_description_text_color</item>
+    </style>
+    <style name="listCategoryLabel">
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:textColor">@color/list_description_text_color</item>
+        <item name="android:textSize">@dimen/list_description_text_size</item>
+    </style>
+    <style name="listCategory">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/list_category_text_color</item>
+        <item name="android:textSize">@dimen/list_category_text_size</item>
+    </style>
+    <style name="listImage">
+        <item name="android:background">@drawable/image_border_1dp</item>
+        <!-- <item name="android:contentDescription">@string/default_image</item> -->
+        <item name="android:layout_marginLeft">@dimen/list_image_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/list_image_margin_top</item>
+        <item name="android:contentDescription">@string/default_image</item>
+    </style>
+    
+    <!-- 4.1 UXD refresh -->
+    <style name="sectionHeaderStyle">
+        <item name="android:textSize">@dimen/section_header_text_size</item>
+        <item name="android:textColor">@color/sub_header_text_color</item>
+        <item name="android:background">@color/card_sub_header_bg</item>
+        <!--<item name="android:fontFamily">Roboto-Regular</item>-->
+        <item name="android:ellipsize">end</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">@dimen/section_header_padding</item>
+    </style>
+
+    <style name="singleItemListStyle">
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:textColor">@color/list_title_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="newsEventsListTitle">
+        <!--<item name="android:textSize">@dimen/list_title_text_size</item>-->
+        <item name="android:textSize">@dimen/section_header_text_size</item>
+        <item name="android:textColor">@color/list_title_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="newsEventsListSummary">
+        <item name="android:textSize">@dimen/list_summary_text_size</item>
+        <item name="android:textColor">@color/list_summary_text_color</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- DETAILS -->
+    <style name="detailImage">
+        <item name="android:background">@drawable/image_border_1dp</item>
+    </style>
+    <style name="detailTitle">
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="detailContent">
+        <item name="android:textSize">@dimen/detail_content_text_size</item>
+        <!-- <item name="android:typeface">serif</item> -->
+    </style>
+    <style name="detailContentLabel" parent="@style/detailContent">
+        <item name="android:textStyle">italic</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+    <style name="detailContentArea">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">@dimen/content_padding</item>
+        <item name="android:paddingRight">@dimen/content_padding</item>
+        <item name="android:paddingBottom">@dimen/content_padding</item>
+    </style>
+    <style name="detailContentHeader">
+        <item name="android:background">@drawable/detail_sub_header_bottom_border_2dp</item>
+        <item name="android:paddingBottom">@dimen/content_padding</item>
+        <item name="android:paddingTop">@dimen/content_padding</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="detailDate">
+        <item name="android:textColor">@color/detail_date_text_color</item>
+        <item name="android:textSize">@dimen/detail_content_text_size</item>
+    </style>
+    
+    <!-- CONTENT BODY AREA -->
+    <style name="contentBody">
+        <item name="android:paddingBottom">@dimen/content_padding_bottom</item>
+        <item name="android:paddingLeft">@dimen/content_padding_left</item>
+        <item name="android:paddingRight">@dimen/content_padding_right</item>
+        <item name="android:paddingTop">@dimen/content_padding_top</item>
+    </style>
+    <style name="contentBody.PaddingRight" parent="@style/contentBody">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <style name="contentMsg">
+        <item name="android:padding">@dimen/content_msg_padding</item>
+        <item name="android:textColor">@color/content_msg_color</item>
+        <item name="android:textSize">@dimen/content_msg_text_size</item>
+    </style>
+    
+    <style name="tableIconRight">
+        <item name="android:background">@drawable/left_border_1dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">0dp</item>
+    </style>
+    
+    <!-- DIALOG -->
+
+    <!--<style name="alertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">-->
+        <!--<item name="android:background">#ffffff</item>-->
+    <!--</style>-->
+
+    <style name="dialogTitle">
+        <item name="android:background">@drawable/bottom_border_2dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+    
+    <style name="dialogRow">
+         <item name="android:layout_marginBottom">4dp</item>
+	     <item name="android:layout_marginLeft">8dp</item>
+	     <item name="android:layout_marginRight">8dp</item>
+	     <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <style name="dialogRow.Light">
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="dialogPasswordHintStyle">
+        <item name="android:typeface">sans</item>
+    </style>
+    <!-- ABOUT/INFO SCREEN -->
+    
+    
+    <style name="aboutSchoolLogo">
+        <item name="android:contentDescription">@string/about_logo_description</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>        
+    </style>
+    <style name="tableLabel">
+        <item name="android:textSize">@dimen/table_label_text</item>
+    </style>
+    <style name="tableData">
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">@dimen/table_data_text_size</item>
+    </style>
+    <style name="aboutExtraInfo">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="aboutTable">
+        <item name="android:background">#11000000</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:shrinkColumns">1</item>
+        <item name="android:stretchColumns">1</item>
+    </style>
+    <style name="cardTable">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:shrinkColumns">1</item>
+        <item name="android:stretchColumns">1</item>
+    </style>
+
+    <!-- DIRECTORY -->
+    <style name="tableLabel.directory">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tableData.directory">
+        <item name="android:textColor">#666666</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/table_data_text_size</item>
+    </style>
+    <style name="directoryListName">
+        <!--<item name="android:textSize">@dimen/list_title_text_size</item>-->
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/list_title_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+    <style name="directoryListGroup">
+        <item name="android:textSize">@dimen/list_summary_text_size</item>
+        <item name="android:textColor">@color/list_summary_text_color</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+
+
+    <!-- BUILDING LIST & DIRECTORY TABLES -->
+    <!-- for use when a layout within the table row needs to draw a vertical rule/divider -->
+    <style name="tableLayoutVerticalSeparator">
+	    <item name="android:paddingRight">16dp</item>
+	    <item name="android:paddingLeft">8dp</item>
+	    <item name="android:layout_marginTop">8dp</item>
+	    <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="cardTableLayout">
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="widget_message">
+        <item name="android:background">#99fbb03b</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+
+    <!-- IMPORTANT NUMBERS DETAIL -->
+    <style name="cardDetailTitle">
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="cardLabel">
+        <item name="android:textSize">@dimen/card_label_text</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="cardData">
+        <item name="android:textSize">@dimen/card_data_text_size</item>
+        <item name="android:textColor">@color/card_data_color</item>
+    </style>
+
+    <style name="cardContent">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+    </style>
+
+    <style name="courseBlockText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="courseTermTabs">
+        <item name="android:background">@color/sub_header_bg</item>
+    </style>
+
+    <!-- REGISTRATION -->
+    <style name="seatsAvailable">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#808080</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="approvalRequiredHeaderLeftText">
+        <item name="android:textSize">@dimen/section_header_text_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="approvalRequiredText">
+        <item name="android:textSize">@dimen/section_header_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- HOME SCREEN -->
+    <style name="homeScreenShortcutText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:shadowColor">#b2000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="homeScreenShortcutText.Dark" parent="homeScreenShortcutText">
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+    </style>
+
+    <style name="homeScreenIcons">
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <!-- WIDGET -->
+    <style name="widgetMediumText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+    </style>
+
+    <style name="widgetSmallText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@android:color/secondary_text_dark</item>
+    </style>
+
+</resources>

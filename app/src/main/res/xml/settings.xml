@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/settings_category_security"
+        android:key="pref_key_security_category">
+        <CheckBoxPreference
+            android:key="@string/pref_key_user_fingerprint_opt_in"
+            android:summary="@string/dialog_use_fingerprint_summary"
+            android:title="@string/dialog_use_fingerprint"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_category_location"
+        android:key="pref_key_location_category">
+        <com.ellucian.mobile.android.settings.ResetLocationsDialog
+            android:key="pref_key_reset_interested_locations"
+            android:title="@string/settings_reset_locations_title"
+            android:summary="@string/settings_reset_locations_summary"
+            android:dialogMessage="@string/settings_reset_locations_dialog_message"
+            android:positiveButtonText="@string/settings_reset_locations_reset_button"
+            android:negativeButtonText="@string/settings_reset_locations_cancel_button"/>
+
+        <com.ellucian.mobile.android.settings.EmptyPreference
+            android:selectAllOnFocus="true"
+            android:title="@string/settings_location_disabled_title"
+            android:summary="@string/settings_location_disabled_summary"
+            android:key="pref_key_location_permission"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

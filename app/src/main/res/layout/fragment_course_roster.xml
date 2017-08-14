@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!--
+  ~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/main_content_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/contentBody" >
+
+     <ListView android:id="@id/android:list"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:drawSelectorOnTop="false"
+               style="@style/listContainer"
+                />
+
+     <TextView android:id="@id/android:empty"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:text="@string/no_data"
+               style="@style/contentMsg"
+                />
+ </LinearLayout>

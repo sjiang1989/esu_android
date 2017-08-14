@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+~ Copyright 2015 Ellucian Company L.P. and its affiliates.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/date_section_header"
+        style="@style/sectionHeaderStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sub_header_bg"
+        android:maxLines="1"
+        android:textIsSelectable="false"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        style="@style/listRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/news_title"
+            style="@style/newsEventsListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textIsSelectable="false"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ellucian.mobile.android.view.SquareImageView
+                android:id="@+id/news_logo"
+                android:layout_margin="1dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/default_image" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:paddingStart="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/news_date_and_description"
+                        style="@style/listDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="false"/>
+
+                    <TextView
+                        android:id="@+id/news_category_label"
+                        style="@style/listCategoryLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/row_category_label"/>
+
+                    <TextView
+                        android:id="@+id/news_category"
+                        style="@style/listCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="false"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/news_summary"
+                    style="@style/newsEventsListSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textIsSelectable="false"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+

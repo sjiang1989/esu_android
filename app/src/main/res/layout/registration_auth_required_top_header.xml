@@ -1,0 +1,40 @@
+<!--
+  ~ Copyright 2016 Ellucian Company L.P. and its affiliates.
+  -->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/status_important_text_color"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:elevation="4dp"
+    android:id="@+id/registration_auth_req_top_header">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_warning_black"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:contentDescription="@string/content_desc_warning"
+        android:cropToPadding="false"
+        android:adjustViewBounds="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/approval_required_message"
+        android:text="@string/registration_approval_required"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/approvalRequiredText"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+</android.support.constraint.ConstraintLayout>

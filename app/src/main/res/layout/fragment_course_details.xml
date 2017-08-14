@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015-2016 Ellucian Company L.P. and its affiliates.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/main_content_bg"
+    android:layout_height="match_parent" >
+	
+    <!-- Full page layout - ScrollView only can have one child -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Top Layout minus the course description view at bottom -->
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+            android:background="@color/sub_header_bg"
+            android:orientation="vertical"
+	        android:padding="@dimen/content_padding" >
+	        
+	        <!-- TITLE -->
+	        <TextView 
+	            android:id="@+id/course_details_title"
+                tools:text="Quantitative Literacy"
+                android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	        	style="@style/detailTitle"/>
+	        
+	        <!-- FROM AND TO DATES -->
+	        <TextView 
+	            android:id="@+id/course_details_dates"
+                tools:text="8/25/2013 - 12/15/2013"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+	        
+        <!-- MEETING TIMES & LOCATIONS -->
+        <LinearLayout
+            android:id="@+id/course_details_meetings_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="4dp"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <!-- EMPTY MEETINGS LIST -->
+        <TextView
+            android:id="@+id/course_details_no_meetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/detailTitle"
+            android:text="@string/course_details_no_meetings"
+            android:padding="@dimen/content_padding" />
+
+        <!-- FACULTY HEADER LABEL -->
+        <TextView
+            android:id="@+id/course_details_faculty_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sub_header_bg"
+            style="@style/detailTitle"
+            android:text="@string/course_details_faculty"
+            android:padding="@dimen/content_padding" />
+
+        <!-- FACULTY LIST -->
+        <LinearLayout
+            android:id="@+id/course_details_faculty_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <!-- EMPTY FACULTY LIST -->
+        <TextView
+            android:id="@+id/course_details_no_faculty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/detailTitle"
+            android:text="@string/course_details_no_faculty"
+            android:padding="@dimen/content_padding" />
+
+	    <!-- DETAIL TEXT -->
+	    <TextView 
+	        android:id="@+id/course_details_course_description"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="@dimen/content_padding"
+	        style="@style/detailContent" />
+    
+    </LinearLayout>
+</ScrollView>
