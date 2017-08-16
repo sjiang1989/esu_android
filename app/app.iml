@@ -40,13 +40,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGoDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGoDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGoDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/ellucianGo/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/ellucianGo/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/ellucianGo/debug" isTestSource="true" generated="true" />
@@ -54,6 +47,13 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/ellucianGo/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/ellucianGo/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/ellucianGo/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testEllucianGoDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGo/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGo/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/ellucianGo/assets" type="java-resource" />
